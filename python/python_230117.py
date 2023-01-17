@@ -6,4 +6,4 @@ name = int(input("숫자를 입력해 주세요: "))
 
 
 value = "짝수" if name % 2 == 0 else "홀수"
-print(value)
+print(value) 

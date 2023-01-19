@@ -16,11 +16,11 @@ def is_selfnumber(n):
     for i in range(1,n):
         if fn_d(i) == n:
             return False
-            break    
+                
     else:
         return True
 
-print(is_selfnumber(61))
+print(is_selfnumber(21))
 
 #if fn_d(a) == fn_d(b) -> not selfnumber
 

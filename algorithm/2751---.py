@@ -33,3 +33,18 @@
 #     if count[idx] > 0:
 #         print(idx)
 #=========================================시간초과
+import sys
+N = int(input())
+array = []
+while len(array) < N:
+    array.append(int(sys.stdin.readline()))
+
+count = [0] * (max(array) + 1)
+
+for i in range(len(array)):
+    count[array[i]] += 1
+
+for idx in range(len(count)):
+    if count[idx] > 0:
+        print(idx)
+#=================================시간초과는 아니지만 틀림.

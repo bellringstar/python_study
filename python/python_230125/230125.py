@@ -22,5 +22,3 @@ Data Structure
 
 
 
-d = {'a' : 3, 'b' : 6, 'c' : 8, 'd' :1}
-print(sorted(d.values(), key=lambda x: x))

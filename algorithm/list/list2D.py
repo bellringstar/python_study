@@ -18,8 +18,8 @@ List 순회
 ---------------이중 루프----
 3. 지그재그 순회
 행 우측 -> 행 좌측 -> 행 우측
-n = len(arr)
-m = len(arr[0])
+n = len(arr)  행개수
+m = len(arr[0]) 열개수
 for i in range(n):
     for j in range(m):
         arr[i][j + (m - 1 - 2 * j) * (i % 2)]

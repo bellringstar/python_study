@@ -180,7 +180,7 @@ def checknode(v): #node
         if there is a solution at v:
             write the solution
         else:
-            for u in each chile of v:
+            for u in each child of v:
                 checknode(u)
 
 이 문제에서 순수한 깊이 우선 탐색 = 155노드/백트래킹 = 27노드
@@ -189,7 +189,7 @@ ex) Power Set
 어떤 집합의 공집합과 자기자신을 포함한 모든 부분집합
 구하고자 하는 어떤 집합의 원소 개수가 n일 경우 부분집합 개수는 2^n이 나옴
 n개의 원소가 들어있는 집합의 2^n개의 부분집합을 만들 때, True또는 Fasle 값을 가지는 항목들로 구성된 n개의 리스트를 만드는 방법사용
-리스트의 i번째 항복은 i번째 원소가 부분집합의 값인지 아닌지를 나타내는 값
+리스트의 i번째 항목은 i번째 원소가 부분집합의 값인지 아닌지를 나타내는 값
 def backtrack(a, k, input):
     global MAXCANDIDATES
     c = [0] * MAXCANDIDATES

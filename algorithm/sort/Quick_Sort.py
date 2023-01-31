@@ -9,24 +9,22 @@ pivot은 고정된 위치.
 2. 분할된 left를 다시 분할
 3. 분할된 right를 다시 분할
 '''
-#[1,5,2,4,2,5,7,9,5] 
+#[1,2,7,3,4,8,5] 
+#[0,i,,j,0,0,0]
 def Quick_Sort(lst,left,right):
-    p = lst[right] #right = 마지막 인덱스
-    #left부터 p보다 작은 값들을 찾는다.
-    #right부터 p보다 큰 값들을 찬느다 
-    while left != right:
-        print(left, right)
-        if lst[left]<=p and lst[right-1]>=p:
-            left +=1 ; right -=1
-        else:
-            lst[left],lst[right] = lst[right],lst[left]
-            left +=1; right -=1
-    print(lst)
-    #큰값은 있지만 작은값은 없는 상황 : 교환은 못하고 큰 값을 오른쪽으로 옮겨야함 
-    i = 0; j = len(lst)-1       
-        
-    Quick_Sort(lst, left, p)
-    Quick_Sort(lst, p+1, right)
+    p = partition() #마지막 원소 5   left=0 right=len(lst)-1 = 8
+    '''
+    pivot보다 작냐, pivot보다 크냐, 아직안봤냐
+    작은영역과 큰영역을 어떻게 나눌것인가
+    작은영역/큰영역 pivot과 큰영역의 1번째랑 교환
+    작은영역 0부터 비교 큰 영역 right - 1 부터
+    '''    
+    Quick_Sort(lst,left,pivot_index)
+    Quick_Sort(lst,pivot_index+1,right)
+            
+def partition(lst, left, right):
+    pivot = lst[right]
+
 
 lst = [1,5,2,4,2,5,7,9,5]
 Quick_Sort(lst,0,len(lst)-1)

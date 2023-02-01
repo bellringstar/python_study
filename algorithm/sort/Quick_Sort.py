@@ -1,30 +1,38 @@
 '''
-pivot을 기준으로 그보다 작은 리스트/ 큰 리스트로 분할
-작은 리스트에 위의 과정을 반복
-큰 리스트에도 위의 과정을 반복
-pivot은 고정된 위치. 
-재귀호출마다 고정된 위치의 pivot이 1개씩 증가
-
-1. pivot을 정하고 분할한다.
-2. 분할된 left를 다시 분할
-3. 분할된 right를 다시 분할
+quick_sort(arr, start, end)
+1. pivot을 정한다.
+2. pivot보다 작은것들과 큰 것들로 나눈다.
+3. 작은것 pivot 큰것 으로 정렬한다. -> pivot의 위치가 고정됨
+4. 작은것/큰것에서 똑같은 행동을 반복
+5. 정렬이 완료된다. 완료조건은? start == end : 어레이의 원소가 하나만 있는 상태 -> 정렬할게 없다.
 '''
-#[1,2,7,3,4,8,5] 
-#[0,i,,j,0,0,0]
-def Quick_Sort(lst,left,right):
-    p = partition() #마지막 원소 5   left=0 right=len(lst)-1 = 8
-    '''
-    pivot보다 작냐, pivot보다 크냐, 아직안봤냐
-    작은영역과 큰영역을 어떻게 나눌것인가
-    작은영역/큰영역 pivot과 큰영역의 1번째랑 교환
-    작은영역 0부터 비교 큰 영역 right - 1 부터
-    '''    
-    Quick_Sort(lst,left,pivot_index)
-    Quick_Sort(lst,pivot_index+1,right)
-            
-def partition(lst, left, right):
-    pivot = lst[right]
+
+def quickSort(arr, start, end):    #start = 0 , end = 마지막 인덱스
+    if start >= end: #종료조건
+        return
+    pivot = arr[end]
+    left = start
+    right = end - 1
+    while left < right:
+        for i in range(left, right + 1):
+            if arr[i] > pivot:
+                left = i
+                break
+        for j in range(right, left, -1):
+            if arr[j] < pivot:
+                right = j
+                break
+        arr[left],arr[right] = arr[right],arr[left]
+    if left == right:
+        arr[left],arr[end] = arr[end],arr[left]
+    p = left
+    quickSort(arr, start, p-1);
+    quickSort(arr, p+1, end) #p+1부터 큰것들이 모여있는것 정렬, p는 현재 위치가 고정된 상태
 
 
-lst = [1,5,2,4,2,5,7,9,5]
-Quick_Sort(lst,0,len(lst)-1)
+
+
+lst = [1, 4, 7, 6, 3, 2, 8, 5]
+quickSort(lst, 0, 7)
+
+print(lst)

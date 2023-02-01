@@ -28,3 +28,8 @@ def BubbleSort(lst, i, end):
     BubbleSort(lst, 0, end-1)
 lst = [4,7,1,2,3,4,8,2,11,82,45,63]
 BubbleSort(lst, 0, len(lst)-1)
+
+for i in range(N-1.-1,-1):
+    for j in range(0, i):
+        if nums[j] > nums[j+1]:
+            num[j],num[j+1] = num[j+1],num[j]

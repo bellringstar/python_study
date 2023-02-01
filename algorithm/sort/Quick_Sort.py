@@ -9,22 +9,24 @@ pivot은 고정된 위치.
 2. 분할된 left를 다시 분할
 3. 분할된 right를 다시 분할
 '''
-#[1,2,7,3,4,8,5] 
-#[0,i,,j,0,0,0]
-def Quick_Sort(lst,left,right):
-    p = partition() #마지막 원소 5   left=0 right=len(lst)-1 = 8
-    '''
-    pivot보다 작냐, pivot보다 크냐, 아직안봤냐
-    작은영역과 큰영역을 어떻게 나눌것인가
-    작은영역/큰영역 pivot과 큰영역의 1번째랑 교환
-    작은영역 0부터 비교 큰 영역 right - 1 부터
-    '''    
-    Quick_Sort(lst,left,pivot_index)
-    Quick_Sort(lst,pivot_index+1,right)
-            
-def partition(lst, left, right):
-    pivot = lst[right]
 
+def quickSort(arr, start, end):
+    if start < end:
+        p = partition(arr, start, end) # arr을 피벗을 기준으로 분할
+        quickSort(arr, start, p-1) # 피벗의 왼쪽에서 작업을 반복
+        quickSort(arr, p+1, end) # 피벗의 오른쪽에서 작업을 반복
 
-lst = [1,5,2,4,2,5,7,9,5]
-Quick_Sort(lst,0,len(lst)-1)
+def partition(arr, start, end):
+    pivot = arr[end] #임의로 정한 pivot
+    i = start - 1 #작은영역 시작점
+    for j in range(start, end): #시작부터 끝까지
+        if arr[j] < pivot: #만약 그 값이 pivot보다 작다면
+            i += 1 #작은 영역 증가
+            arr[i], arr[j] = arr[j], arr[i] # 큰영역에 존재하는 작은값과 작은영역에 있는 큰 값 교환
+    arr[i+1], arr[end] = arr[end], arr[i+1] #pivot과 작은영역의 끝 다음위치 = 큰 영역의 시작 값과 교환
+    return i + 1 #교환 후 pivot의 위치 반환
+
+lst = [5,2,1,5,7,2,4]
+quickSort(lst, 0, len(lst)-1)
+print(lst)
+

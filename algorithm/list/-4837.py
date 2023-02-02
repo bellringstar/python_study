@@ -8,7 +8,7 @@ n = len(A)
 for i in range(1<<n):
     p_list = []
     for j in range(n):
-        if i&(1<<j):
+        if i&(1<<j): #i의 j번쨰 비트가 1이면 j번째 원소 출력
             p_list.append(A[j])
     partial_list.append(p_list)
 for test in range(T):

@@ -9,27 +9,27 @@ quick_sort(arr, start, end)
 <<<<<<< HEAD
 =======
 
-def quickSort(arr, start, end):    #start = 0 , end = 마지막 인덱스
-    if start >= end: #종료조건
-        return
-    pivot = arr[end]
-    left = start
-    right = end - 1
-    while left < right:
-        for i in range(left, right + 1):
-            if arr[i] > pivot:
-                left = i
-                break
-        for j in range(right, left, -1):
-            if arr[j] < pivot:
-                right = j
-                break
-        arr[left],arr[right] = arr[right],arr[left]
-    if left == right:
-        arr[left],arr[end] = arr[end],arr[left]
-    p = left
-    quickSort(arr, start, p-1);
-    quickSort(arr, p+1, end) #p+1부터 큰것들이 모여있는것 정렬, p는 현재 위치가 고정된 상태
+# def quickSort(arr, start, end):    #start = 0 , end = 마지막 인덱스
+#     if start >= end: #종료조건
+#         return
+#     pivot = arr[end]
+#     left = start
+#     right = end - 1
+#     while left < right:
+#         for i in range(left, right + 1):
+#             if arr[i] > pivot:
+#                 left = i
+#                 break
+#         for j in range(right, left, -1):
+#             if arr[j] < pivot:
+#                 right = j
+#                 break
+#         arr[left],arr[right] = arr[right],arr[left]
+#     if left == right:
+#         arr[left],arr[end] = arr[end],arr[left]
+#     p = left
+#     quickSort(arr, start, p-1);
+#     quickSort(arr, p+1, end) #p+1부터 큰것들이 모여있는것 정렬, p는 현재 위치가 고정된 상태
 >>>>>>> 75603c6221a87a6ac2e3b3678fdbea87ebfa82de
 
 def quickSort(arr, start, end):

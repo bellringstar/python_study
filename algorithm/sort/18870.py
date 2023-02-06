@@ -26,8 +26,13 @@
 # print(rst)
 # print(time.time()- start)
 #------------------시간초과---------------------
-# import sys
-# input = sys.stdin.readline
+import sys
+input = sys.stdin.readline
 
-# N = int(input())
-# lst = list(map(int, input().split()))
+N = int(input())
+lst = list(map(int, input().split()))
+new_list = list(set(lst))
+new_list.sort()
+dic = {new_list[idx]:idx for idx in range(len(new_list))}
+for num in lst:
+    print(dic[num],end=" ")

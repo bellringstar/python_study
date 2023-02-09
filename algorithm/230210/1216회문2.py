@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('1216input.txt', 'r')
+sys.stdin = open('회문2_input.txt', 'r')
 
 # def palindrome(word):
 #     i = 0

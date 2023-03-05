@@ -13,29 +13,50 @@
 import sys
 input = sys.stdin.readline
 
+
 def find(a):
-    if people[a] == a:
+    if parent[a] == a:
         return a
     else:
-        return find(people[a])
+        return find(parent[a])
 
 def union(a,b):
     a = find(a)
     b = find(b)
     if a != b:
-        people[b] = a
+        parent[b] = a
 
 
 
-N, M = map(int, input().split()) # N:사람수, M:파티수
-know = list(map(int, input().split()))
-party = [[] for _ in range(M+1)]
-for idx in range(1, M+1):
-    party[idx] = list(map(int, input().split()))
-people = [0] * (N+1)
-for i in range(1, N+1):
-    people[i] = i
+N, M = map(int, input().split()) #N:사람수, M 파티수
+known = list(map(int, input().split())) #아는 사람 수
+if known[0] == 0:
+    rst = M
+else:
+    known = known[1:]
+    rst = 0 #결과값
+    cnt = 0
+    parent = [i for i in range(N+1)] #idx = 번호
+    for idx in range(1, len(known)):
+        union(known[0],known[idx])
+    arr = [list(map(int, input().split()))[1:] for _ in range(M)]
+    for lst in arr:
+        for people in known:
+            if people in lst:
+                for i in range(len(lst)):
+                    union(people, lst[i])
+                    known.append(lst[i])
+                break
+    for lst in arr:
+        for num in lst:
+            if num in known:
+                break
+        else:
+            cnt += 1
 
+    rst = cnt
+
+print(rst)
 
 
 

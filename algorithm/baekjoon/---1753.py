@@ -1,31 +1,34 @@
-import sys,collections
+import sys,queue
 input = sys.stdin.readline
-def BFS(s):
-    q = collections.deque()
-    q.append((s,0))
-    visited[s] = 1
-    while q:
-        now = q.popleft()
-        for new in arr[now[0]]:
-            if not visited[new[0]]:
-                visited[new[0]] = visited[now[0]] + new[1]
-                q.append(new)
-            else:
-                if visited[new[0]] > visited[now[0]] + new[1]:
-                    visited[new[0]] = visited[now[0]] + new[1]
+
 
 V, E = map(int, input().split())
 
 arr = [[] for _ in range(V+1)]
-start = int(input())
+K = int(input())
 for _ in range(E):
     u, v, w = map(int, input().split())
     arr[u].append((v, w))
 visited = [0] * (V+1)
-BFS(start)
+rst = [2000000] * (V+1)
+rst[K] = 0
+
+q = queue.PriorityQueue()
+q.put((0, K))
+
+while q.qsize()>0:
+    now = q.get()
+    if visited[now[1]]:
+        continue
+    visited[now[1]] = 1
+    for new in arr[now[1]]:
+        if rst[new[0]] > new[now[1]] + new[1]:
+            rst[new[0]] = new[now[1]] + new[1]
+            print(rst)
+            q.put((rst[new[0]], new[1]))
+
 for i in range(1, V+1):
     if visited[i]:
-        print(visited[i] - 1)
+        print(rst[i])
     else:
-        print('INF')
-
+        print("INF")

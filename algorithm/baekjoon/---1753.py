@@ -1,34 +1,34 @@
-import sys,queue
+import sys,collections
+
 input = sys.stdin.readline
 
 
 V, E = map(int, input().split())
-
-arr = [[] for _ in range(V+1)]
 K = int(input())
+arr = [[] for _ in range(V+1)]
 for _ in range(E):
-    u, v, w = map(int, input().split())
-    arr[u].append((v, w))
-visited = [0] * (V+1)
-rst = [2000000] * (V+1)
-rst[K] = 0
+    u,v,w = map(int,input().split())
+    arr[u].append((v,w))
 
-q = queue.PriorityQueue()
-q.put((0, K))
+# K에서 i까지 최단 경로
+distance = [300000*100] * (V+1)
+distance[K] = 0
 
-while q.qsize()>0:
-    now = q.get()
-    if visited[now[1]]:
-        continue
-    visited[now[1]] = 1
-    for new in arr[now[1]]:
-        if rst[new[0]] > new[now[1]] + new[1]:
-            rst[new[0]] = new[now[1]] + new[1]
-            print(rst)
-            q.put((rst[new[0]], new[1]))
-
-for i in range(1, V+1):
-    if visited[i]:
-        print(rst[i])
-    else:
+def graph(s):
+    q = collections.deque()
+    q.append((s,0))
+    while q:
+        now = q.popleft()
+        for new in arr[now[0]]:
+            pos = new[0]
+            v = new[1]
+            distance[pos] = min(distance[pos], distance[now[0]] + v)
+            q.append(new)
+graph(K)
+for i in range(1,V+1):
+    if distance[i] == 300000*100:
         print("INF")
+    else:
+        print(distance[i])
+
+

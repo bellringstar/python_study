@@ -1,0 +1,55 @@
+.board{
+  margin: auto;
+  width: 800px;
+  height: 800px;
+  border: 2px solid black;
+  
+}
+.set{
+  font-size: 0;
+  /* position:relative; */
+}
+.white{
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  display: inline-block;
+  position: relative;
+  
+  
+}
+.black{
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  display: inline-block;
+  position: relative;
+  
+}
+#white_queen{
+  width: 100px;
+  height: 100px;
+  position:relative;
+  right: 300px;
+  bottom:300px;
+}
+#black_pawn{
+  width: 100px;
+  height: 100px;
+  display: none;
+}
+#white_rook{
+  width: 100px;
+  height: 100px;
+  position: relative;
+  right:200px;
+}
+#white_king{
+  z-index: 1;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  left: 200px;
+}

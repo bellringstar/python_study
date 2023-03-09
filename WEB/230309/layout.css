@@ -1,0 +1,30 @@
+
+.header{
+  height: 100px;
+  background-color: mintcream;
+}
+
+.section-left{
+  height: 500px;
+  background-color: bisque;
+  width: 30%;
+
+}
+
+.section-right{
+  height: 500px;
+  background-color: cadetblue;
+  width: 70%;
+  
+}
+
+.footer{
+  height: 100px;
+  background-color: yellowgreen;
+  clear: both;
+  /* float이 끝난 다음 다시 normal flow로 복귀  */
+}
+
+.left{
+  float: left;
+}

@@ -1,0 +1,12 @@
+.container{
+  display: flex;
+}
+
+.item {
+  width: 100px;
+  height: 100px;
+  background-color: brown;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+

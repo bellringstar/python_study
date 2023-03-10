@@ -1,18 +1,8 @@
-A = [300, 60, 10]
+A = int(input())
+B = int(input())
+C = int(input())
 
-T = int(input())
-rst = []
-k = 0
-while T:
-    if T >= A[k]:
-        cnt = T//A[k]
-        T %= A[k]
-        A[k] = cnt
-    else:
-        A[k] = 0
-    k+= 1
-    if k >= 3:
-        A = [-1]
-        break
+val = str(A * B * C)
 
-print(*A)
+for i in range(10):
+    print(val.count(str(i)))

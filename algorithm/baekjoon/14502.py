@@ -7,7 +7,7 @@ arr = [list(map(int, input().split())) for _ in range(N)]
 
 '''
 0인 곳 3곳을 1로 변경
-DFS -> 0의 개수를 센다
+DFSBFS -> 0의 개수를 센다
 '''
 def bfs():
     for idx in two_idx:

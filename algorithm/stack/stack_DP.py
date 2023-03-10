@@ -76,9 +76,9 @@ DP 구형 방식
 2. iterative 방식 (fibo2())
 Memoization을 재귀적 구조에 사용하는 것보다 반복적 구조로 DP를 구현한 것이 성능 면에서 보다 효율적
 
-DFS(깊이 우선 탐색)
+DFSBFS(깊이 우선 탐색)
 비선형구조인 그래프 구조는 그래프로 표현된 모든 자료를 빠짐없이 검색하는 것이 중요
-1. 깊이 우선 탐색 DFS(Depth First Search)
+1. 깊이 우선 탐색 DFSBFS(Depth First Search)
 2. 너비 우선 탐색 BFS(Breadth First Search)
 
 DFS방법
@@ -94,7 +94,7 @@ DFS방법
 1-2. 방문하지 않은 정점이 없으면, 탐색의 방향을 바꾸기 위해서 스택을 pop하여 받은 가장 마지막 방문 정점을 v로 하여 반복
 
 visited[], stack[] 초기화
-DFS(v)
+DFSBFS(v)
     v 방문;
     visited[v] <-true;
     do {
@@ -109,7 +109,7 @@ DFS(v)
         }
         v<-pop(stack);
     }while(v)
-end DFS()
+end DFSBFS()
 다시 돌아오기 위해 사용한 자료구조 = 스택
 
 

@@ -27,11 +27,11 @@ n, m = map(int, input().split())
 A = [[] for _ in range(n+1)]
 visited = [False] * (n+1)
 
-# def DFS(v):
+# def DFSBFS(v):
 #     visited[v] = True
 #     for w in A[v]:
 #         if not visited[w]:
-#             DFS(w)
+#             DFSBFS(w)
 
 def DFS(v):
     stack = []

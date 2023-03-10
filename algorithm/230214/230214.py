@@ -52,7 +52,7 @@ B = [0] * 3
 f(0, 3)
 
 '''
-DFS(깊이우선탐색)
+DFSBFS(깊이우선탐색)
 갈림길의 위치를 기록해놔야한다.
 1. 시작정점 v를 결정하여 방문
 2. 정점v에 인접한 정점 중에서
@@ -62,7 +62,7 @@ DFS(깊이우선탐색)
 3. 스택이 공백이 될 때까지 2를 반복
 
 visites[], stack[] 초기화
-DFS(v):
+DFSBFS(v):
     시작점, v 방문
     visited[v] <- True
     while {
@@ -76,7 +76,7 @@ DFS(v):
             else
                 break
     }
-end DFS()
+end DFSBFS()
 '''
 
 def dfs(v):

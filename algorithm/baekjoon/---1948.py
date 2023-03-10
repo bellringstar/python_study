@@ -12,7 +12,7 @@
 # import sys
 # input = sys.stdin.readline
 # 
-# def DFS(s,e):
+# def DFSBFS(s,e):
 #     global cnt, time
 #     stack.append(s)
 #     now = stack.pop()
@@ -20,7 +20,7 @@
 #     arr.append(now)
 #     for new in path[now[0]]:
 #         if not visited[new[0]]:
-#             DFS(new,e)
+#             DFSBFS(new,e)
 #             visited[new[0]] = 0
 #             if new[0] == e:
 #                 sum = 0
@@ -52,7 +52,7 @@
 # visited = [0] * (n+1)
 # arr = []
 # cnt = time = 0
-# DFS((s_city,0),e_city)
+# DFSBFS((s_city,0),e_city)
 # print(time)
 # print(cnt)
 #------------------------------시간초과
